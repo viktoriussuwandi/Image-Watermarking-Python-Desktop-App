@@ -2,6 +2,9 @@
 
 #### This is an image watermarking python desktop app.
 
-#### This project running on : [My Repl](https://replit.com/@ViktoriusSuwand/AppBrewery-python-Day-83-Tic-Tac-Toe)
+#### This project running on : [My Repl](https://replit.com/@ViktoriusSuwand/AppBrewery-python-Day-84-Image-Watermarking-Desktop-App)
 
-#### Documentation can be found on : [My Github](https://github.com/viktoriussuwandi/Tic-Tac-Toe-Python-Game-Development)
+#### Documentation can be found on : [My Github](https://github.com/viktoriussuwandi/Image-Watermarking-Python-Desktop-App)
+
+### Development
+    under development
