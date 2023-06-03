@@ -1,4 +1,4 @@
-## Image Watermarking Python Desktop App
+## Python Image Watermarking Desktop App
 
 #### This is an image watermarking python desktop app.
 
