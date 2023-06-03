@@ -4,6 +4,6 @@ tk = Tk()
 
 tk.title("Watermark App")
 
-tk.minsize(width=350,height=150)
+tk.minsize(width=300,height=550)
 
-tk.config(bg="#01579B")
+tk.config(bg="#deeaee")
