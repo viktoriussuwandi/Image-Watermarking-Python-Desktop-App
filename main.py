@@ -33,7 +33,7 @@ canvas.grid(
   padx   = canvas_pad_x, 
   pady   = canvas_pad_y, 
   row    = 0, 
-  column = 0, 
+  column = 0,
   columnspan = 4
 )
 
@@ -72,16 +72,20 @@ def reset_img() :
 #-----------------------------------------------------
 # ELEMENTS
 #-----------------------------------------------------
-btn_upload = Button( image = btn_upload_img, highlightthickness = 0, command = upload_img)
-btn_upload.grid(pady = padding_btn_y, row=1, column=0)
 
+btn_upload   = Button( image = btn_upload_img, highlightthickness = 0, command = upload_img)
 btn_donwload = Button( image = btn_download_img, highlightthickness = 0, command = download_img )
-btn_donwload.grid(pady = padding_btn_y, row=1, column=1)
-
 btn_add_text = Button( image = btn_add_text_img, highlightthickness = 0, command = add_text )
-btn_add_text.grid(pady = padding_btn_y, row=1, column=2)
+btn_reset    = Button( image = btn_add_reset_img, highlightthickness = 0, command = reset_img )
 
-btn_reset = Button( image = btn_add_reset_img, highlightthickness = 0, command = reset_img )
+
+#-----------------------------------------------------
+# GRIDS (COLUMNS AND ROWS)
+#-----------------------------------------------------
+
+btn_upload.grid(pady = padding_btn_y, row=1, column=0)
+btn_donwload.grid(pady = padding_btn_y, row=1, column=1)
+btn_add_text.grid(pady = padding_btn_y, row=1, column=2)
 btn_reset.grid(pady = padding_btn_y, row=1, column=3)
 
 #-----------------------------------------------------
