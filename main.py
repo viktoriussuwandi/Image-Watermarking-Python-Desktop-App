@@ -22,11 +22,14 @@ btn_size  = (button_width, button_height)
 tk = Tk()
 tk.title("Watermark Desktop App")
 tk.minsize(width = tk_width,height = tk_height)
-tk.config(bg = "#fefbd8")
+tk.config( padx = 20, pady = 20,bg = "#fefbd8")
 
 canvas = Canvas(width = canvas_width, height = canvas_height)
 canvas.config(bg = "#B1DDC6", highlightthickness = 0)
-canvas.grid( row = 0, column = 0, columnspan = 4 )
+canvas.grid( 
+  padx = 20, pady = 50, 
+  row = 0, column = 0, columnspan = 4
+)
 
 #------------------------------------------------------------------
 # IMAGE
@@ -38,8 +41,9 @@ image = canvas_image.resize(canvas_img_size)
 photo_img = ImageTk.PhotoImage(image)
 
 canvas_img = canvas.create_image(
-  canvas_img_pos, image = photo_img, anchor = CENTER
+  canvas_img_pos, image = photo_img
 )
+
 canvas.itemconfig(canvas_img, image=photo_img)
 
 #------------------------------------------------------------------
@@ -58,7 +62,7 @@ btn_upload = Button(
   command = upload_img
 )
 
-btn_upload.grid(row=1, column=0)
+btn_upload.grid(pady = 20, row=1, column=0)
 
 #------------------------------------------------------------------
 # BUTTON DOWNLOAD
@@ -76,7 +80,7 @@ btn_donwload = Button(
   command = download_img
 )
 
-btn_donwload.grid(row=1, column=1)
+btn_donwload.grid(pady = 20, row=1, column=1)
 
 #------------------------------------------------------------------
 # BUTTON ADD TEXT
@@ -88,13 +92,13 @@ def add_text() :
 logo_btn_add_text = Image.open("files/img/btn_add_text_img.png")
 logo_btn_add_text_img = logo_btn_add_text.resize(btn_size)
 btn_add_text_img = ImageTk.PhotoImage(logo_btn_add_text_img)
-btn_donwload = Button(
+btn_add_text = Button(
   image = btn_add_text_img,
   highlightthickness = 0, 
   command = add_text
 )
 
-btn_donwload.grid(row=1, column=2)
+btn_add_text.grid(pady = 20, row=1, column=2)
 
 #------------------------------------------------------------------
 # FUNCTIONS
