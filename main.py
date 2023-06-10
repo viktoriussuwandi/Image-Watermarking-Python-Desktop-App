@@ -35,22 +35,36 @@ canvas.grid(
 )
 
 #-----------------------------------------------------
-# IMAGE
+# CANVAS IMAGE
 #-----------------------------------------------------
+bg1_img_path   = "files/img/background1.png"
+open_bg1_image = Image.open(bg1_img_path)
+resize_bg1_img = open_bg1_image.resize(canvas_img_size)
+bg1_img        = ImageTk.PhotoImage(resize_bg1_img)
 
+bg2_img_path   = "files/img/background2.png"
+open_bg2_image = Image.open(bg2_img_path)
+resize_bg2_img = open_bg2_image.resize(canvas_img_size)
+bg2_img        = ImageTk.PhotoImage(resize_bg2_img)
+
+sample1_img_path   = "files/img/background1.png"
+open_sample1_image = Image.open(sample1_img_path)
+resize_sample1_img = open_sample1_image.resize(canvas_img_size)
+sample1_img        = ImageTk.PhotoImage(resize_sample1_img)
+canvas_sample1_img = canvas.create_image(canvas_img_pos, image = sample1_img)
+
+#-----------------------------------------------------
+# BACKGROUND IMAGE
+#-----------------------------------------------------
+canvas_img = canvas.create_image(canvas_img_pos, image = bg1_img)
+canvas.itemconfig(canvas_img, image = bg1_img)
 
 #-----------------------------------------------------
 # BUTTON UPLOAD
 #-----------------------------------------------------
 
 def upload_img() :
-  canvas_image = Image.open("files/img/background.png")
-  image = canvas_image.resize(canvas_img_size)
-  photo_img = ImageTk.PhotoImage(image)
-  canvas_img = canvas.create_image(
-    canvas_img_pos, image = photo_img
-  )
-  canvas.itemconfig(canvas_img, image=photo_img)
+  canvas.itemconfig(canvas_img, image = bg2_img)
   print('Upload Image')
   
 logo_btn_upload = Image.open("files/img/btn_upload_img.png")
@@ -69,6 +83,7 @@ btn_upload.grid(pady = padding_btn_y, row=1, column=0)
 #-----------------------------------------------------
 
 def download_img() :
+  canvas.itemconfig(canvas_img, image = bg1_img)
   print('Download Image')
   
 logo_btn_download = Image.open("files/img/btn_download_img.png")
