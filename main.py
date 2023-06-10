@@ -10,8 +10,8 @@ from PIL import Image, ImageTk
 tk_width  = 500
 tk_height = 600
 
-canvas_width  = 470
-canvas_height = 370
+canvas_width  = 480
+canvas_height = 350
 canvas_img_size = (canvas_width,canvas_height)
 canvas_img_pos  = (canvas_width/2,canvas_height/2)
 canvas_pad_x  = 50
@@ -25,7 +25,7 @@ btn_size  = (button_width, button_height)
 tk = Tk()
 tk.title("Watermark Desktop App")
 tk.minsize(width = tk_width,height = tk_height)
-tk.config( padx = 20, pady = 20,bg = "#36486b")
+tk.config( padx = 10, pady = 10,bg = "#36486b")
 
 canvas = Canvas(master = tk, width = canvas_width, height = canvas_height)
 canvas.config(bg = "#fefbd8", highlightthickness = 0)
