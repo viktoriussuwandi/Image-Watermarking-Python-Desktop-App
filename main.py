@@ -38,7 +38,7 @@ canvas.grid(
 )
 
 #-----------------------------------------------------
-# IMAGES
+# IMAGES & IMAGE CONTAINER
 #-----------------------------------------------------
 bg1_img = ImageTk.PhotoImage(Image.open("files/img/background1.png").resize(canvas_img_size))
 bg2_img = ImageTk.PhotoImage(Image.open("files/img/background2.png").resize(canvas_img_size))
@@ -48,6 +48,7 @@ btn_upload_img    = ImageTk.PhotoImage(Image.open("files/img/btn_upload_img.png"
 btn_download_img  = ImageTk.PhotoImage(Image.open("files/img/btn_download_img.png").resize(btn_size))
 btn_add_text_img  = ImageTk.PhotoImage(Image.open("files/img/btn_add_text_img.png").resize(btn_size))
 btn_add_reset_img = ImageTk.PhotoImage(Image.open("files/img/btn_reset_img.png").resize(btn_size))
+
 canvas_img_container = canvas.create_image( canvas_img_pos, image = bg1_img)
 
 #-----------------------------------------------------
@@ -77,7 +78,6 @@ btn_upload   = Button( image = btn_upload_img, highlightthickness = 0, command =
 btn_donwload = Button( image = btn_download_img, highlightthickness = 0, command = download_img )
 btn_add_text = Button( image = btn_add_text_img, highlightthickness = 0, command = add_text )
 btn_reset    = Button( image = btn_add_reset_img, highlightthickness = 0, command = reset_img )
-
 
 #-----------------------------------------------------
 # GRIDS (COLUMNS AND ROWS)
