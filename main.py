@@ -27,46 +27,42 @@ tk.title("Watermark Desktop App")
 tk.minsize(width = tk_width,height = tk_height)
 tk.config( padx = 20, pady = 20,bg = "#36486b")
 
-canvas = Canvas(width = canvas_width, height = canvas_height)
+canvas = Canvas(master = tk, width = canvas_width, height = canvas_height)
+
 canvas.config(bg = "#fefbd8", highlightthickness = 0)
 canvas.grid( 
-  padx = canvas_pad_x, pady = canvas_pad_y, 
-  row = 0, column = 0, columnspan = 4
+  padx   = canvas_pad_x, 
+  pady   = canvas_pad_y, 
+  row    = 0, 
+  column = 0, 
+  columnspan = 4
 )
+
 
 #-----------------------------------------------------
 # CANVAS IMAGE
 #-----------------------------------------------------
-bg1_img_path   = "files/img/background1.png"
-open_bg1_image = Image.open(bg1_img_path)
-resize_bg1_img = open_bg1_image.resize(canvas_img_size)
-bg1_img        = ImageTk.PhotoImage(resize_bg1_img)
 
-bg2_img_path   = "files/img/background2.png"
-open_bg2_image = Image.open(bg2_img_path)
-resize_bg2_img = open_bg2_image.resize(canvas_img_size)
-bg2_img        = ImageTk.PhotoImage(resize_bg2_img)
-
-sample1_img_path   = "files/img/background1.png"
-open_sample1_image = Image.open(sample1_img_path)
-resize_sample1_img = open_sample1_image.resize(canvas_img_size)
-sample1_img        = ImageTk.PhotoImage(resize_sample1_img)
-canvas_sample1_img = canvas.create_image(canvas_img_pos, image = sample1_img)
-
-#-----------------------------------------------------
-# BACKGROUND IMAGE
-#-----------------------------------------------------
-canvas_img = canvas.create_image(canvas_img_pos, image = bg1_img)
-canvas.itemconfig(canvas_img, image = bg1_img)
+def set_img( path = None ) :
+  open_image   = Image.open(path)
+  resize_img   = open_image.resize(canvas_img_size)
+  result_image = ImageTk.PhotoImage(resize_img)
+  return result_image
+  
+beginning_img = set_img("files/img/background1.png")
+canvas_img = canvas.create_image(canvas_img_pos, image=beginning_img)
 
 #-----------------------------------------------------
 # BUTTON UPLOAD
 #-----------------------------------------------------
 
 def upload_img() :
-  canvas.itemconfig(canvas_img, image = bg2_img)
+  img_path = "files/img/background2.png"
+  img = PhotoImage(file=img_path)
+  print(img)
+  canvas.itemconfig(canvas_img, image=img)
   print('Upload Image')
-  
+
 logo_btn_upload = Image.open("files/img/btn_upload_img.png")
 logo_btn_upload_img = logo_btn_upload.resize(btn_size)
 btn_upload_img = ImageTk.PhotoImage(logo_btn_upload_img)
@@ -83,7 +79,11 @@ btn_upload.grid(pady = padding_btn_y, row=1, column=0)
 #-----------------------------------------------------
 
 def download_img() :
-  canvas.itemconfig(canvas_img, image = bg1_img)
+  img_path = "files/img/background3.png"
+  img = PhotoImage(file=img_path)
+  # img = set_img(img_path)
+  print(img)
+  canvas.itemconfig(canvas_img, image=img)
   print('Download Image')
   
 logo_btn_download = Image.open("files/img/btn_download_img.png")
