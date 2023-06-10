@@ -10,8 +10,8 @@ from PIL import Image, ImageTk
 tk_width  = 500
 tk_height = 600
 
-canvas_width  = 450
-canvas_height = 350
+canvas_width  = 470
+canvas_height = 370
 canvas_img_size = (canvas_width,canvas_height)
 canvas_img_pos  = (canvas_width/2,canvas_height/2)
 canvas_pad_x  = 50
@@ -34,7 +34,7 @@ canvas.grid(
   pady   = canvas_pad_y, 
   row    = 0, 
   column = 0,
-  columnspan = 4
+  columnspan = 5
 )
 
 #-----------------------------------------------------
@@ -44,10 +44,11 @@ bg1_img = ImageTk.PhotoImage(Image.open("files/img/background1.png").resize(canv
 bg2_img = ImageTk.PhotoImage(Image.open("files/img/background2.png").resize(canvas_img_size))
 bg3_img = ImageTk.PhotoImage(Image.open("files/img/background3.png").resize(canvas_img_size))
 
-btn_upload_img    = ImageTk.PhotoImage(Image.open("files/img/btn_upload_img.png").resize(btn_size))
-btn_download_img  = ImageTk.PhotoImage(Image.open("files/img/btn_download_img.png").resize(btn_size))
-btn_add_text_img  = ImageTk.PhotoImage(Image.open("files/img/btn_add_text_img.png").resize(btn_size))
-btn_add_reset_img = ImageTk.PhotoImage(Image.open("files/img/btn_reset_img.png").resize(btn_size))
+btn_upload_img   = ImageTk.PhotoImage(Image.open("files/img/btn_upload_img.png").resize(btn_size))
+btn_download_img = ImageTk.PhotoImage(Image.open("files/img/btn_download_img.png").resize(btn_size))
+btn_add_text_img = ImageTk.PhotoImage(Image.open("files/img/btn_add_text_img.png").resize(btn_size))
+btn_add_icon_img = ImageTk.PhotoImage(Image.open("files/img/btn_add_icon_img.png").resize(btn_size))
+btn_reset_img    = ImageTk.PhotoImage(Image.open("files/img/btn_reset_img.png").resize(btn_size))
 
 canvas_img_container = canvas.create_image( canvas_img_pos, image = bg1_img)
 
@@ -66,6 +67,9 @@ def download_img() :
 def add_text() :
   print('Add Text')
 
+def add_icon() :
+  print('Add Icon')
+  
 def reset_img() :
   canvas.itemconfig(canvas_img_container, image = bg1_img)
   print('Reset Image')
@@ -77,7 +81,8 @@ def reset_img() :
 btn_upload   = Button( image = btn_upload_img, highlightthickness = 0, command = upload_img)
 btn_donwload = Button( image = btn_download_img, highlightthickness = 0, command = download_img )
 btn_add_text = Button( image = btn_add_text_img, highlightthickness = 0, command = add_text )
-btn_reset    = Button( image = btn_add_reset_img, highlightthickness = 0, command = reset_img )
+btn_add_icon = Button( image = btn_add_icon_img, highlightthickness = 0, command = add_icon )
+btn_reset    = Button( image = btn_reset_img, highlightthickness = 0, command = reset_img )
 
 #-----------------------------------------------------
 # GRIDS (COLUMNS AND ROWS)
@@ -86,7 +91,8 @@ btn_reset    = Button( image = btn_add_reset_img, highlightthickness = 0, comman
 btn_upload.grid(pady = padding_btn_y, row=1, column=0)
 btn_donwload.grid(pady = padding_btn_y, row=1, column=1)
 btn_add_text.grid(pady = padding_btn_y, row=1, column=2)
-btn_reset.grid(pady = padding_btn_y, row=1, column=3)
+btn_add_icon.grid(pady = padding_btn_y, row=1, column=3)
+btn_reset.grid(pady = padding_btn_y, row=1, column=4)
 
 #-----------------------------------------------------
 # OTHER
