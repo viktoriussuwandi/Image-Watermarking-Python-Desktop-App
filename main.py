@@ -28,9 +28,7 @@ tk.minsize(width = tk_width,height = tk_height)
 tk.config( padx = 20, pady = 20,bg = "#36486b")
 
 canvas = Canvas(master = tk, width = canvas_width, height = canvas_height)
-
 canvas.config(bg = "#fefbd8", highlightthickness = 0)
-
 canvas.grid( 
   padx   = canvas_pad_x, 
   pady   = canvas_pad_y, 
@@ -46,10 +44,10 @@ bg1_img = ImageTk.PhotoImage(Image.open("files/img/background1.png").resize(canv
 bg2_img = ImageTk.PhotoImage(Image.open("files/img/background2.png").resize(canvas_img_size))
 bg3_img = ImageTk.PhotoImage(Image.open("files/img/background3.png").resize(canvas_img_size))
 
-btn_upload_img   = ImageTk.PhotoImage(Image.open("files/img/btn_upload_img.png").resize(btn_size))
-btn_download_img = ImageTk.PhotoImage(Image.open("files/img/btn_download_img.png").resize(btn_size))
-btn_add_text_img = ImageTk.PhotoImage(Image.open("files/img/btn_add_text_img.png").resize(btn_size))
-
+btn_upload_img    = ImageTk.PhotoImage(Image.open("files/img/btn_upload_img.png").resize(btn_size))
+btn_download_img  = ImageTk.PhotoImage(Image.open("files/img/btn_download_img.png").resize(btn_size))
+btn_add_text_img  = ImageTk.PhotoImage(Image.open("files/img/btn_add_text_img.png").resize(btn_size))
+btn_add_reset_img = ImageTk.PhotoImage(Image.open("files/img/btn_reset_img.png").resize(btn_size))
 canvas_img_container = canvas.create_image( canvas_img_pos, image = bg1_img)
 
 #-----------------------------------------------------
@@ -67,6 +65,10 @@ def download_img() :
 def add_text() :
   print('Add Text')
 
+def reset_img() :
+  canvas.itemconfig(canvas_img_container, image = bg1_img)
+  print('Reset Image')
+  
 #-----------------------------------------------------
 # ELEMENTS
 #-----------------------------------------------------
@@ -78,6 +80,9 @@ btn_donwload.grid(pady = padding_btn_y, row=1, column=1)
 
 btn_add_text = Button( image = btn_add_text_img, highlightthickness = 0, command = add_text )
 btn_add_text.grid(pady = padding_btn_y, row=1, column=2)
+
+btn_reset = Button( image = btn_add_reset_img, highlightthickness = 0, command = reset_img )
+btn_reset.grid(pady = padding_btn_y, row=1, column=3)
 
 #-----------------------------------------------------
 # OTHER
