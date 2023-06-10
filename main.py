@@ -25,10 +25,10 @@ btn_size  = (button_width, button_height)
 tk = Tk()
 tk.title("Watermark Desktop App")
 tk.minsize(width = tk_width,height = tk_height)
-tk.config( padx = 20, pady = 20,bg = "#fefbd8")
+tk.config( padx = 20, pady = 20,bg = "#36486b")
 
 canvas = Canvas(width = canvas_width, height = canvas_height)
-canvas.config(bg = "#B1DDC6", highlightthickness = 0)
+canvas.config(bg = "#fefbd8", highlightthickness = 0)
 canvas.grid( 
   padx = canvas_pad_x, pady = canvas_pad_y, 
   row = 0, column = 0, columnspan = 4
@@ -38,22 +38,19 @@ canvas.grid(
 # IMAGE
 #------------------------------------------------------------------
 
-canvas_image = Image.open("files/img/background.png")
-
-image = canvas_image.resize(canvas_img_size)
-photo_img = ImageTk.PhotoImage(image)
-
-canvas_img = canvas.create_image(
-  canvas_img_pos, image = photo_img
-)
-
-canvas.itemconfig(canvas_img, image=photo_img)
 
 #------------------------------------------------------------------
 # BUTTON UPLOAD
 #------------------------------------------------------------------
 
 def upload_img() :
+  canvas_image = Image.open("files/img/background.png")
+  image = canvas_image.resize(canvas_img_size)
+  photo_img = ImageTk.PhotoImage(image)
+  canvas_img = canvas.create_image(
+    canvas_img_pos, image = photo_img
+  )
+  canvas.itemconfig(canvas_img, image=photo_img)
   print('Upload Image')
   
 logo_btn_upload = Image.open("files/img/btn_upload_img.png")
