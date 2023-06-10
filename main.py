@@ -14,9 +14,12 @@ canvas_width  = 450
 canvas_height = 350
 canvas_img_size = (canvas_width,canvas_height)
 canvas_img_pos  = (canvas_width/2,canvas_height/2)
+canvas_pad_x  = 50
+canvas_pad_y  = 50
 
 button_width  = 50
 button_height = 50
+padding_btn_y = 20
 btn_size  = (button_width, button_height)
 
 tk = Tk()
@@ -27,7 +30,7 @@ tk.config( padx = 20, pady = 20,bg = "#fefbd8")
 canvas = Canvas(width = canvas_width, height = canvas_height)
 canvas.config(bg = "#B1DDC6", highlightthickness = 0)
 canvas.grid( 
-  padx = 20, pady = 50, 
+  padx = canvas_pad_x, pady = canvas_pad_y, 
   row = 0, column = 0, columnspan = 4
 )
 
@@ -62,7 +65,7 @@ btn_upload = Button(
   command = upload_img
 )
 
-btn_upload.grid(pady = 20, row=1, column=0)
+btn_upload.grid(pady = padding_btn_y, row=1, column=0)
 
 #------------------------------------------------------------------
 # BUTTON DOWNLOAD
@@ -80,7 +83,7 @@ btn_donwload = Button(
   command = download_img
 )
 
-btn_donwload.grid(pady = 20, row=1, column=1)
+btn_donwload.grid(pady = padding_btn_y, row=1, column=1)
 
 #------------------------------------------------------------------
 # BUTTON ADD TEXT
@@ -98,7 +101,7 @@ btn_add_text = Button(
   command = add_text
 )
 
-btn_add_text.grid(pady = 20, row=1, column=2)
+btn_add_text.grid(pady = padding_btn_y, row=1, column=2)
 
 #------------------------------------------------------------------
 # FUNCTIONS
